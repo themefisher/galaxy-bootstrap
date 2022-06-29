@@ -1,0 +1,342 @@
+/*!------------------------------------------------------------------
+[MAIN STYLESHEET]
+
+PROJECT:	Galaxy - Personal Blog Template
+VERSION:	v1.0
+-------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+[TABLE OF CONTENTS]
+-------------------------------------------------------------------*/
+
+@import 'variables';
+@import 'mixins';
+@import 'common';
+@import 'typography';
+
+/*------------------------------------------------------------------
+ # preloader style
+-------------------------------------------------------------------*/
+.preloader-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	z-index: 9999999;
+	text-align: center;
+	overflow: hidden;
+	background-color: rgb(36, 39, 53);
+	transition: 0.5s;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAG0lEQVQYV2NkYGD4z8DAwMgABXAGNgGwSgwVAFbmAgXQdISfAAAAAElFTkSuQmCC);
+}
+.preloader-inner {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	transition: 0.7s ease;
+	transform: translate(-50%, -50%);
+}
+.preloader-wrapper.loaded {
+	height: 0;
+	img {
+		opacity: 0;
+	}
+}
+
+/*------------------------------------------------------------------
+ # sidenav/navbar style
+-------------------------------------------------------------------*/
+.sidenav {
+    top: 0;
+    width: 340px;
+    min-height: 100vh;
+    padding: 60px;
+    &.show {
+        left: 0;
+    }
+    transition: .3s ease;
+    @include breakAt(lg-device) {
+        width: 250px;
+        padding: 50px;
+    }
+    @include breakAt(md-device) {
+        position: fixed !important;
+        z-index: 9995;
+        top: 0;
+        left: -250px;
+        background-color: $dark;
+    }
+    .navbar-brand img {
+        max-width: 150px;
+        @include breakAt(lg-device) {
+            max-width: 120px;
+        }
+        @include breakAt(md-device) {
+            max-width: 100px;
+        }
+    }
+    .nav-link {
+        font-size: 20px;
+        position: relative;
+        display: inline-block;
+        &::after {
+            position: absolute;
+            content: "";
+            height: 2px;
+            width: 0;
+            background-color: #ffffff;
+            left: 0;
+            bottom: 13px;
+            transition: .3s;
+        }
+        &:hover {
+            color: rgba($white, .5) !important;
+            &::after {
+                width: 15px;
+            }
+        }
+    }
+    .nav-link[aria-expanded='true'],
+    .active .nav-link {
+        color: rgba($white, .5) !important;
+        &::after {
+            width: 15px;
+        }
+    }
+    select {
+        background: url(../images/chevron-down.svg) no-repeat right 0.5rem center/15px 17px;
+        border: 1px solid #ffffff !important;
+        height: 30px;
+        padding: 0 28px 0 10px;
+        width: 80px;
+        background-size: 14px;
+        &:focus {
+            border: 1px solid $white !important;
+        }
+        option {
+            background-color: $dark;
+        }
+    }
+}
+.mobile-nav {
+    display: none;
+    position: relative;
+    z-index: 9992;
+    @include breakAt(md-device) {
+        display: block;
+    }
+    img {
+        width: 120px;
+        @include breakAt(md-device) {
+            width: 100px;
+        }
+    }
+    .nav-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 13px;
+        padding-top: 3px;
+        border-radius: 50px;
+    }
+    .nav-toggle.show .show,
+    .nav-toggle .hidden {
+        display: none;
+    }
+    .nav-toggle.show .hidden {
+        display: block;
+    }
+}
+.nav-toggle-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba($black, .5);
+    z-index: 999;
+    cursor: zoom-out;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}
+.nav-toggle-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+.drop-menu { 
+    padding-left: 10px;
+    border-left: 1px solid #555;
+    a {
+        color: $white;
+        &.active,
+        &:hover {
+            color: rgba($white, .5) !important;
+        }
+    }
+}
+
+/*------------------------------------------------------------------
+ # blog post style
+-------------------------------------------------------------------*/
+.post-item {
+    .card-img-top {
+        transition: .3s;
+        &:hover {
+            filter: grayscale(.5);
+            -webkit-filter: grayscale(.5);
+        }
+    }
+}
+.post-meta li a {
+    color: $white;
+    font-weight: 500;
+    font-size: 14px;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+.breadcrumb-wrap a {
+    color: $gray;
+    &:hover {
+        color: $white;
+        text-decoration: underline;
+    }
+}
+.categores-links a {
+    font-size: 13px;
+    color: $gray;
+    border-color: $color-primary !important;
+    padding: 4px 7px;
+    margin-right: 6px;
+    margin-top: 8px;
+    &:hover {
+        color: $white;
+        background-color: $color-primary;
+    }
+}
+
+.border-lg-0 {
+    @include breakAt(lg-device) {
+        border: 0 !important;
+    }
+}
+
+.blockquote {
+    padding: 50px 90px;
+    @include breakAt(sm-device) {
+        padding: 30px 50px !important;
+    }
+}
+.blockquote-text {
+    font-size: 24px;
+    position: relative;
+    &::before,
+    &::after {
+        position: absolute;
+        color: $color-primary;
+        font-size: 61px;
+        line-height: 0;
+        font-family: $font-primary;
+    }
+    &::before {
+        content: "“";
+        top: 30px;
+        left: -35px;
+    }
+    &::after {
+        content: "”";
+        bottom: 0;
+        right: -35px;
+    }
+    @include breakAt(sm-device) {
+        font-size: 15px;
+    }
+}
+@include breakAt(sm-device) {
+    .blockquote-footer {
+        font-size: 15px;
+    }
+}
+
+/*------------------------------------------------------------------
+ # widget style
+-------------------------------------------------------------------*/
+.widget {
+    margin-bottom: 50px;
+    .form-control {
+        font-size: 15px;
+        color: $white;
+        height: 48px;
+        border: 1px solid #2f2e35 !important;
+        &:focus {box-shadow: none !important;} 
+    }
+}
+.widget-title {
+    border-bottom: 2px solid $color-primary;
+    padding-bottom: 10px;
+}
+.author-thumb-sm {
+    height: auto;
+    max-width: 230px;
+    width: 100%;
+}
+
+/*------------------------------------------------------------------
+ # contact-form style
+-------------------------------------------------------------------*/
+.contact-form {
+    padding: 60px;
+    label {
+        font-size: 14px;
+        color: $white;
+        margin-bottom: 15px;
+    }
+    .form-control {
+        background-color: transparent;
+        border: 0;
+        color: #aaa;
+        border-color: #333139 !important;
+        padding-bottom: 20px;
+        &:focus {
+            border-color: $black-800 !important;
+        }
+    }
+    select {
+        padding-bottom: 16px;
+        color: #aaa;
+        padding-right: 15px;
+        background-color: transparent;
+        border: 0;
+        border-bottom: 1px solid #333139;
+        option {
+            background-color: $dark;
+            color: $white;
+        }
+    }
+    textarea {
+        resize: none;
+        height: 100px;
+    }
+}
+
+
+/*------------------------------------------------------------------
+ # footer style
+-------------------------------------------------------------------*/
+footer {
+    padding-top: 100px;
+    padding-bottom: 30px;
+    ul li a {
+        color: rgba($white, 0.6);
+        font-size: 14px;
+        margin-bottom: 15px;
+        &:hover {
+            color: rgba($white, 0.6);
+            text-decoration: underline;
+        }
+    }
+    ul li:last-child a {
+        margin-bottom: 0;
+    }
+}

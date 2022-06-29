@@ -1,0 +1,14 @@
+@@include('header.htm')
+@@include('sidenav.htm',{'home':'', 'about':'', 'contact':'', 'pages':'active', 'home2':'active', 'category':'', 'postDetails':'', 'pnp':''})
+    <div class="main-content">
+        @@include('mobile-nav.htm')
+
+            <div class="container py-4 my-5">
+                @@include('search-form.htm')
+                @@include('post.htm')
+            </div>
+
+        @@include('footer-block.htm')
+    </div>
+
+@@include('footer.htm')

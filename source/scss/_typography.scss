@@ -1,0 +1,62 @@
+h1, .h1, h2, .h2, h3, .h3, h4 {
+    font-family: $font-primary;
+}
+h1, .h1 {
+    font-size: 48px;
+    @include breakAt(md-device) {
+        font-size: 38px;
+    }
+}
+h2, .h2 {
+    font-size: 36px;
+    @include breakAt(md-device) {
+        font-size: 28px;
+    }
+}
+h3, .h3 {
+    font-size: 24px;
+    @include breakAt(md-device) {
+        font-size: 20px;
+    }
+}
+h4, .h4 {
+    font-size: 20px;
+}
+h5, .h5 {
+    font-size: 18px;
+}
+h6, .h6 {
+    font-size: 15px;
+}
+.h4, h5, .h5, h6, .h6, p {
+    font-family: $font-secondary;
+}
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p {
+    margin: 0;
+}
+a:focus,
+button:focus {
+	outline: 0;
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+    transition: all .3s;
+}
+a:hover, a:active, a:focus {
+	text-decoration: none;
+	outline: 0;
+}
+a:hover {
+	color: initial;
+}
+ol {
+    list-style-position: inside;
+}
+ul, li {
+	padding: 0;
+	margin: 0;
+}
+.table-bordeprimary td, .table-bordeprimary th {
+    border-color: #333139 !important;
+}

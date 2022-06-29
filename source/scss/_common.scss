@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Montserrat:wght@400;500&display=swap');
+
+body {
+    color: $gray;
+    background-color: #1A191E;
+	font-family: $font-secondary;
+    font-size: 16px;
+    line-height: 1.65;
+	overflow-y: hidden;
+}
+body.loaded {
+	overflow-y: scroll;
+}
+::selection {
+	color: $white;
+	background-color: rgba($color-primary, 0.7);
+	text-shadow: none;
+}
+:focus {
+    outline: 0;
+}
+
+.main-content {
+	width: calc(100% - 340px);
+    @include breakAt(lg-device) {
+		width: calc(100% - 250px);
+    }
+    @include breakAt(md-device) {
+		width: 100%;
+    }
+}
+
+// button style
+.btn {
+	font-size: 15px;
+	padding: 10px 25px;
+	letter-spacing: 0.1em;
+	color: $white;
+	font-family: $font-primary;
+	border-radius: 0;
+	border: 0;
+	img {
+		margin-left: 5px;
+		width: 19px;
+		position: relative;
+	}
+	&:hover {
+		color: $white;
+		background-color: rgba($color-primary, 0.7);
+	}
+	&:active,
+	&:focus {
+		border: 0;
+		color: $white;
+		background-color: rgba($color-primary, 0.7);
+		box-shadow: none;
+	}
+}
+.btn-primary {
+	background-color: $color-primary;
+}
+
+// search form style
+.search-form {
+	margin-bottom: 35px;
+	input {
+		height: 45px;
+		border-color: #333139;
+		&:focus {
+			border-color: #444;
+		}
+	}
+	.btn {
+		border: 1px solid #333139;
+		&:hover {
+			background-color: $color-primary;
+			border-color: $color-primary;
+		}
+	}
+}
+
+
+// bullet list style
+.bullet-list-item {
+	position: relative;
+	padding-left: 20px;
+}
+.bullet-list-item::after {
+    position: absolute;
+    content: "";
+    height: 10px;
+    width: 10px;
+    background-color: $color-primary;
+    left: 0;
+	top: 9px;
+	border-radius: 50px;
+}
+
+
+/*=== UTILITIES CLASSES ===*/
+.font-primary {font-family: $font-primary}
+.font-secondary {font-family: $font-secondary}
+
+.shadow {box-shadow: 0px 0px 20px rgba(34, 34, 34, 0.04) !important}
+
+.add-letter-space {letter-spacing: 2px}
+
+.opacity-0, .opacity-0-onHover,
+.opacity-25, .opacity-25-onHover,
+.opacity-50, .opacity-50-onHover,
+.opacity-75, .opacity-75-onHover,
+.opacity-1, .opacity-1-onHover {
+    transition: all .3s;
+}
+.opacity-0, .opacity-0-onHover:hover {opacity: 0}
+.opacity-25, .opacity-25-onHover:hover {opacity: .25}
+.opacity-50, .opacity-50-onHover:hover {opacity: .50}
+.opacity-75, .opacity-75-onHover:hover {opacity: .75}
+.opacity-1, .opacity-1-onHover:hover {opacity: 1}
+
+.z-index-1 {z-index: 1}
+.z-index-100 {z-index: 100}
+.z-index-200 {z-index: 200}
+.z-index-bottom {z-index: -5}
+.z-index-top {z-index: 9900}
+
+.text-gray {color: $gray}
+.bg-gray {background-color: $gray}
+.text-primary, .text-primary-onHover:hover {color: $color-primary !important}
+.bg-primary {background-color: $color-primary !important}
+.text-dark {color: $dark !important}
+.bg-dark {background-color: $dark !important}
+
+.bg-black {background-color: $black}
+.text-black {color: $black}
+.text-black-100 {color: $black-100}
+.bg-black-100 {background-color: $black-100}
+.bg-black-200 {background-color: $black-200}
+.text-black-200 {color: $black-200}
+.bg-black-300 {background-color: $black-300}
+.text-black-300 {color: $black-300}
+.text-black-400 {color: $black-400}
+.bg-black-400 {background-color: $black-400}
+.bg-black-500 {background-color: $black-500}
+.text-black-500 {color: $black-500}
+.text-black-600 {color: $black-600}
+.bg-black-600 {background-color: $black-600}
+.bg-black-700 {background-color: $black-700}
+.text-black-700 {color: $black-700}
+.text-black-700-darken {color: darken($black-700, 1.57)}
+.bg-black-700-darken {background-color: darken($black-700, 1.57)}
+.text-black-800 {color: $black-800}
+.bg-black-800 {background-color: $black-800}
+.bg-black-900 {background-color: $black-900}
+.text-black-900 {color: $black-900}
