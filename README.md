@@ -1,6 +1,6 @@
 # Galaxy Free Bootstrap Blog Template
 
-![galaxy](https://demo.themefisher.com/thumbnails/galaxy.png)
+![galaxy](https://assets.teamosis.com/thumbs/galaxy.png)
 
 👉🏻[View Live Preview](https://demo.themefisher.com/galaxy/)
 
